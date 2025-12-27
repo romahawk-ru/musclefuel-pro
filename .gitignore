@@ -1,0 +1,36 @@
+# ОС
+.DS_Store
+Thumbs.db
+
+# Редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Сборки
+dist/
+build/
+
+# Кэш
+.cache/
+
+# Временные файлы
+*.tmp
+*.temp
+
+# Логи
+*.log
+
+# Конфигурационные файлы
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
