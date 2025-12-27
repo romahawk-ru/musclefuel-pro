@@ -1,0 +1,1295 @@
+/* ==========================================================================
+   БАЗОВЫЕ СТИЛИ И ПЕРЕМЕННЫЕ
+   ========================================================================== */
+
+:root {
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary-color: #7209b7;
+    --accent-color: #4cc9f0;
+    --success-color: #4ade80;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    
+    --training-day: #4361ee;
+    --rest-day: #10b981;
+    
+    --dark-color: #1e293b;
+    --light-color: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+    
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* ==========================================================================
+   СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--gray-700);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   ТИПОГРАФИЯ
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   ОСНОВНАЯ СТРУКТУРА
+   ========================================================================== */
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   ШАПКА
+   ========================================================================== */
+
+.main-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="white" opacity="0.05"/></svg>');
+    background-size: cover;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.logo h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.logo-highlight {
+    color: var(--accent-color);
+    font-weight: 800;
+}
+
+.tagline {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   ОСНОВНОЕ СОДЕРЖИМОЕ
+   ========================================================================== */
+
+.main-content {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+/* ==========================================================================
+   КАРТОЧКИ
+   ========================================================================== */
+
+.calculator-card,
+.results-card,
+.nutrition-plan-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-card:hover,
+.results-card:hover,
+.nutrition-plan-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(90deg, var(--gray-100), white);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.card-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    color: var(--dark-color);
+}
+
+.card-header h2 i {
+    color: var(--primary-color);
+}
+
+.card-subtitle {
+    color: var(--gray-600);
+    font-size: 0.95rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* ==========================================================================
+   ФОРМЫ И ВВОД ДАННЫХ
+   ========================================================================== */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+}
+
+.section-title i {
+    color: var(--primary-color);
+}
+
+.section-description {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.input-field label i {
+    color: var(--primary-color);
+}
+
+.input-field input {
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--dark-color);
+    transition: all 0.2s ease;
+    background: white;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.input-field input::placeholder {
+    color: var(--gray-400);
+}
+
+.input-hint {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   РАДИО КНОПКИ И ЧЕКБОКСЫ
+   ========================================================================== */
+
+.radio-group {
+    margin-bottom: 2rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.radio-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.radio-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s ease;
+}
+
+.radio-button:hover {
+    background-color: var(--gray-100);
+}
+
+.radio-button input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--gray-400);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.radio-button input[type="radio"]:checked + .radio-custom {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+.radio-button input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.radio-text {
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+/* ==========================================================================
+   КАРТОЧКИ ЦЕЛЕЙ
+   ========================================================================== */
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.goal-card {
+    cursor: pointer;
+}
+
+.goal-card input[type="radio"] {
+    display: none;
+}
+
+.goal-content {
+    padding: 1.5rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    background: white;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.goal-card input[type="radio"]:checked + .goal-content {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #f0f4ff, white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.goal-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+.goal-icon.loss {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: var(--danger-color);
+}
+
+.goal-icon.maintain {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: var(--warning-color);
+}
+
+.goal-icon.gain {
+    background: linear-gradient(135deg, #dbeafe, #93c5fd);
+    color: var(--primary-color);
+}
+
+.goal-text h4 {
+    margin-bottom: 0.25rem;
+    color: var(--dark-color);
+}
+
+.goal-text p {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ==========================================================================
+   РАСПИСАНИЕ ТРЕНИРОВОК
+   ========================================================================== */
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.day-checkbox {
+    cursor: pointer;
+    padding: 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    background: white;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.day-checkbox:hover {
+    border-color: var(--gray-300);
+    background: var(--gray-50);
+}
+
+.day-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.day-checkbox input[type="checkbox"]:checked + .day-name {
+    background: var(--primary-color);
+    color: white;
+}
+
+.day-checkbox input[type="checkbox"]:checked ~ .day-full {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.day-name {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--gray-600);
+    transition: all 0.2s ease;
+}
+
+.day-full {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    transition: color 0.2s ease;
+}
+
+/* ==========================================================================
+   КНОПКИ
+   ========================================================================== */
+
+.calculate-button-container {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-lg {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+}
+
+.btn-calculate {
+    position: relative;
+}
+
+.loading-spinner {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-calculate .loading-spinner i {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.btn-calculate .btn-text {
+    transition: opacity 0.3s ease;
+}
+
+.btn-calculate.calculating .btn-text {
+    opacity: 0.7;
+}
+
+.calculation-hint {
+    text-align: center;
+    margin-top: 0.75rem;
+    color: var(--gray-500);
+    font-size: 0.9rem;
+}
+
+.calculation-hint i {
+    color: var(--primary-color);
+    margin-right: 0.25rem;
+}
+
+.calculation-hint p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   ИНФОРМАЦИЯ О ФОРМУЛАХ
+   ========================================================================== */
+
+.formulas-info {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #bae6fd;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.formulas-info h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.formulas-info h4 i {
+    color: var(--primary-color);
+}
+
+.formulas-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.formulas-info li {
+    padding: 0.5rem 0;
+    color: var(--gray-700);
+    border-bottom: 1px solid #c7d2fe;
+}
+
+.formulas-info li:last-child {
+    border-bottom: none;
+}
+
+.formulas-info li strong {
+    color: var(--dark-color);
+}
+
+/* ==========================================================================
+   ИНФОРМАЦИЯ О РАЦИОНЕ
+   ========================================================================== */
+
+.diet-info-section {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #fcd34d;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.diet-info-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.diet-info-header i {
+    color: #d97706;
+    font-size: 1.5rem;
+}
+
+.diet-info-header h3 {
+    margin: 0;
+    color: #92400e;
+}
+
+.diet-info-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.diet-info-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #fcd34d;
+}
+
+.diet-info-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #92400e;
+}
+
+.diet-info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.diet-info-card li {
+    padding: 0.35rem 0;
+    color: #78350f;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.diet-info-card li:before {
+    content: "•";
+    color: #d97706;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.diet-info-card strong {
+    color: #92400e;
+}
+
+/* ==========================================================================
+   РЕЗУЛЬТАТЫ РАСЧЕТОВ
+   ========================================================================== */
+
+.main-results {
+    margin-bottom: 3rem;
+}
+
+.main-result-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.result-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.result-unit {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   МАКРОНУТРИЕНТЫ
+   ========================================================================== */
+
+.macros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.macro-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid;
+    transition: transform 0.3s ease;
+}
+
+.macro-card:hover {
+    transform: translateY(-2px);
+}
+
+.macro-card.protein {
+    border-color: #3b82f6;
+}
+
+.macro-card.fat {
+    border-color: #f59e0b;
+}
+
+.macro-card.carbs {
+    border-color: #10b981;
+}
+
+.macro-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.macro-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.macro-card.protein .macro-icon {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.macro-card.fat .macro-icon {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.macro-card.carbs .macro-icon {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.macro-title {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.macro-title h4 {
+    margin: 0;
+    color: var(--dark-color);
+}
+
+.macro-percent {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+.macro-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.macro-unit {
+    text-align: center;
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.macro-description {
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+/* ==========================================================================
+   ПЛАН ПИТАНИЯ НА НЕДЕЛЮ
+   ========================================================================== */
+
+.plan-legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+
+.legend-color {
+    width: 1rem;
+    height: 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.legend-color.training {
+    background-color: var(--training-day);
+}
+
+.legend-color.rest {
+    background-color: var(--rest-day);
+}
+
+.week-plan-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   КАРТОЧКИ ДНЕЙ ПИТАНИЯ
+   ========================================================================== */
+
+.day-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 2px solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.day-card.training {
+    border-color: var(--training-day);
+}
+
+.day-card.rest {
+    border-color: var(--rest-day);
+}
+
+.day-header {
+    padding: 1rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-card.training .day-header {
+    background: linear-gradient(135deg, var(--training-day), #3a56d4);
+}
+
+.day-card.rest .day-header {
+    background: linear-gradient(135deg, var(--rest-day), #0da271);
+}
+
+.day-calories {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+}
+
+.day-meals {
+    padding: 1.5rem;
+}
+
+.meal-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.meal-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.meal-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.meal-calories {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+.product-list {
+    font-size: 0.95rem;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.product-item:last-child {
+    margin-bottom: 0;
+}
+
+.product-name {
+    flex: 1;
+    color: var(--gray-700);
+}
+
+.product-amount {
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   ПРИМЕЧАНИЯ
+   ========================================================================== */
+
+.plan-note {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #bae6fd;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.note-icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.note-content h4 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.note-content p {
+    color: var(--gray-700);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   ПОДВАЛ
+   ========================================================================== */
+
+.main-footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.footer-logo i {
+    color: var(--accent-color);
+}
+
+.footer-info {
+    color: var(--gray-400);
+    font-size: 0.9rem;
+    max-width: 600px;
+}
+
+.footer-links {
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .container {
+        padding: 0 1.25rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .week-plan-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .main-content {
+        padding: 1.5rem 0;
+    }
+    
+    .input-group {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .goals-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .days-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    
+    .macros-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .week-plan-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-result-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .result-value {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.75rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .card-header {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1.25rem;
+    }
+    
+    .btn-lg {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .days-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .plan-legend {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .macro-value {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .days-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .goal-content {
+        padding: 1rem;
+    }
+    
+    .macro-card {
+        padding: 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   АНИМАЦИИ
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.calculator-card,
+.results-card,
+.nutrition-plan-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.day-card {
+    animation: fadeIn 0.6s ease-out;
+}
