@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Калькулятор питания для набора мышечной массы, похудения и поддержания веса. Персонализированный недельный план питания с учетом тренировок.">
+    <meta name="keywords" content="калькулятор калорий, набор массы, похудение, питание, тренировки, БЖУ, протеин">
+    <title>MuscleFuel Pro | Калькулятор питания для набора мышечной массы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        
+        <header class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <h1>MuscleFuel <span class="logo-highlight">Pro</span></h1>
+                    </div>
+                    <p class="tagline">Персонализированный планировщик питания для ваших спортивных целей</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                
+                <section class="calculator-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user-circle"></i> Ваши параметры</h2>
+                        <p class="card-subtitle">Введите данные для расчета персонального плана питания</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="personal-data">
+                            <h3 class="section-title">Личная информация</h3>
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <label for="weight">
+                                        <i class="fas fa-weight-scale"></i> Вес (кг)
+                                    </label>
+                                    <input type="number" id="weight" min="40" max="200" value="75" placeholder="Например, 75">
+                                    <div class="input-hint">Основной параметр для расчета</div>
+                                </div>
+                                
+                                <div class="input-field">
+                                    <label for="age">
+                                        <i class="fas fa-birthday-cake"></i> Возраст (лет)
+                                    </label>
+                                    <input type="number" id="age" min="15" max="80" value="25" placeholder="Например, 25">
+                                </div>
+                                
+                                <div class="input-field">
+                                    <label for="height">
+                                        <i class="fas fa-ruler-vertical"></i> Рост (см)
+                                    </label>
+                                    <input type="number" id="height" min="140" max="220" value="180" placeholder="Например, 180">
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <i class="fas fa-venus-mars"></i> Пол
+                                    </label>
+                                    <div class="radio-buttons">
+                                        <label class="radio-button">
+                                            <input type="radio" name="gender" value="male" checked>
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-text">Мужской</span>
+                                        </label>
+                                        <label class="radio-button">
+                                            <input type="radio" name="gender" value="female">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-text">Женский</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="goals-activity">
+                            <div class="goals-section">
+                                <h3 class="section-title">
+                                    <i class="fas fa-bullseye"></i> Ваша цель
+                                </h3>
+                                <div class="goals-grid">
+                                    <label class="goal-card">
+                                        <input type="radio" name="goal" value="loss">
+                                        <div class="goal-content">
+                                            <div class="goal-icon loss">
+                                                <i class="fas fa-fire"></i>
+                                            </div>
+                                            <div class="goal-text">
+                                                <h4>Похудение</h4>
+                                                <p>-10% от нормы калорий</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="goal-card">
+                                        <input type="radio" name="goal" value="maintain">
+                                        <div class="goal-content">
+                                            <div class="goal-icon maintain">
+                                                <i class="fas fa-balance-scale"></i>
+                                            </div>
+                                            <div class="goal-text">
+                                                <h4>Поддержание</h4>
+                                                <p>Базовые калории</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="goal-card">
+                                        <input type="radio" name="goal" value="gain" checked>
+                                        <div class="goal-content">
+                                            <div class="goal-icon gain">
+                                                <i class="fas fa-weight"></i>
+                                            </div>
+                                            <div class="goal-text">
+                                                <h4>Набор массы</h4>
+                                                <p>+10% от нормы калорий</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="training-schedule">
+                                <h3 class="section-title">
+                                    <i class="fas fa-calendar-check"></i> Расписание тренировок
+                                </h3>
+                                <p class="section-description">Отметьте дни с тренировками для адаптации плана питания</p>
+                                
+                                <div class="days-grid">
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="0" checked>
+                                        <span class="day-name">Пн</span>
+                                        <span class="day-full">Понедельник</span>
+                                    </label>
+                                    
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="1">
+                                        <span class="day-name">Вт</span>
+                                        <span class="day-full">Вторник</span>
+                                    </label>
+                                    
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="2" checked>
+                                        <span class="day-name">Ср</span>
+                                        <span class="day-full">Среда</span>
+                                    </label>
+                                    
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="3">
+                                        <span class="day-name">Чт</span>
+                                        <span class="day-full">Четверг</span>
+                                    </label>
+                                    
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="4" checked>
+                                        <span class="day-name">Пт</span>
+                                        <span class="day-full">Пятница</span>
+                                    </label>
+                                    
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="5">
+                                        <span class="day-name">Сб</span>
+                                        <span class="day-full">Суббота</span>
+                                    </label>
+                                    
+                                    <label class="day-checkbox">
+                                        <input type="checkbox" name="training-days" value="6">
+                                        <span class="day-name">Вс</span>
+                                        <span class="day-full">Воскресенье</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculate-button-container">
+                            <button class="btn btn-primary btn-lg btn-calculate" id="calculate-btn">
+                                <i class="fas fa-calculator"></i>
+                                <span class="btn-text">Рассчитать мой план питания</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <div class="loading-spinner" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </button>
+                            <div class="calculation-hint">
+                                <p><i class="fas fa-info-circle"></i> Нажмите кнопку для расчета персонального плана питания</p>
+                            </div>
+                        </div>
+                        
+                        <div class="formulas-info">
+                            <h4><i class="fas fa-calculator"></i> Используемые формулы:</h4>
+                            <ul>
+                                <li><strong>Калории:</strong> Вес × 30 ккал (±10% для цели)</li>
+                                <li><strong>Белки:</strong> Вес × 2.5-3 г (2.75г для набора массы)</li>
+                                <li><strong>Жиры:</strong> Вес × 0.6-0.7 г (среднее 0.65г)</li>
+                                <li><strong>Углеводы:</strong> (Калории - (Белки×4 + Жиры×9)) ÷ 4</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="diet-info-section">
+                            <div class="diet-info-header">
+                                <i class="fas fa-utensils"></i>
+                                <h3>Новый рацион питания (4 приема пищи)</h3>
+                            </div>
+                            <div class="diet-info-content">
+                                <div class="diet-info-card">
+                                    <h4><i class="fas fa-sun"></i> Тренировочные дни:</h4>
+                                    <ul>
+                                        <li><strong>Завтрак:</strong> Яйца, сыр, тосты, овощи</li>
+                                        <li><strong>Обед (предтренировочный):</strong> Каша с протеином, банан, ягоды, джем</li>
+                                        <li><strong>Ужин (посттренировочный):</strong> Мясо, рис, изюм, овощи</li>
+                                        <li><strong>На ночь:</strong> Йогурт, творог, гранола, фрукт</li>
+                                    </ul>
+                                </div>
+                                <div class="diet-info-card">
+                                    <h4><i class="fas fa-moon"></i> Дни отдыха:</h4>
+                                    <ul>
+                                        <li>Уменьшены порции круп и протеина</li>
+                                        <li>Скорректированы порции мяса и фруктов</li>
+                                        <li>Без изюма и меньше джема</li>
+                                        <li>Сохраняется баланс БЖУ</li>
+                                    </ul>
+                                </div>
+                                <div class="diet-info-card">
+                                    <h4><i class="fas fa-sync-alt"></i> Особенности:</h4>
+                                    <ul>
+                                        <li>Чередование курицы и индейки</li>
+                                        <li>60г протеина в тренировочные дни</li>
+                                        <li>30г протеина в дни отдыха</li>
+                                        <li>4 приема пищи для лучшего усвоения</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="results-card" id="results-section" style="display: none;">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-line"></i> Ваши результаты</h2>
+                        <p class="card-subtitle">Персональные нормы питания на день</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="main-results">
+                            <div class="main-result-card">
+                                <div class="result-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="result-content">
+                                    <div class="result-label">Суточная норма калорий</div>
+                                    <div class="result-value" id="calories-result">0</div>
+                                    <div class="result-unit">ккал/день</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="macros-details">
+                            <h3 class="section-title">Распределение макронутриентов</h3>
+                            
+                            <div class="macros-grid">
+                                <div class="macro-card protein">
+                                    <div class="macro-header">
+                                        <div class="macro-icon">
+                                            <i class="fas fa-dna"></i>
+                                        </div>
+                                        <div class="macro-title">
+                                            <h4>Белки</h4>
+                                            <span class="macro-percent" id="protein-percent">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="macro-value" id="protein-result">0</div>
+                                    <div class="macro-unit">грамм/день</div>
+                                    <div class="macro-description">2.5-3 г на 1 кг веса</div>
+                                </div>
+                                
+                                <div class="macro-card fat">
+                                    <div class="macro-header">
+                                        <div class="macro-icon">
+                                            <i class="fas fa-oil-can"></i>
+                                        </div>
+                                        <div class="macro-title">
+                                            <h4>Жиры</h4>
+                                            <span class="macro-percent" id="fat-percent">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="macro-value" id="fat-result">0</div>
+                                    <div class="macro-unit">грамм/день</div>
+                                    <div class="macro-description">0.6-0.7 г на 1 кг веса</div>
+                                </div>
+                                
+                                <div class="macro-card carbs">
+                                    <div class="macro-header">
+                                        <div class="macro-icon">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <div class="macro-title">
+                                            <h4>Углеводы</h4>
+                                            <span class="macro-percent" id="carbs-percent">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="macro-value" id="carbs-result">0</div>
+                                    <div class="macro-unit">грамм/день</div>
+                                    <div class="macro-description">Рассчитываются из остатка калорий</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="nutrition-plan-card" id="week-plan-section" style="display: none;">
+                    <div class="card-header">
+                        <h2><i class="fas fa-utensils"></i> План питания на неделю</h2>
+                        <p class="card-subtitle">Персонализированное меню с учетом ваших тренировок</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="plan-legend">
+                            <div class="legend-item">
+                                <div class="legend-color training"></div>
+                                <span>День тренировки</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color rest"></div>
+                                <span>День отдыха</span>
+                            </div>
+                        </div>
+                        
+                        <div class="week-plan-container" id="week-plan"></div>
+                        
+                        <div class="plan-note">
+                            <div class="note-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="note-content">
+                                <h4>Важно!</h4>
+                                <p>Данный план питания является рекомендацией и может быть адаптирован под ваши предпочтения. В дни тренировок увеличено количество углеводов для восполнения энергии, а в дни отдыха немного снижена общая калорийность. Для достижения лучших результатов рекомендуется консультация с диетологом.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>MuscleFuel Pro</span>
+                    </div>
+                    <div class="footer-info">
+                        <p>© 2024 Калькулятор питания для спортсменов. Все расчеты носят рекомендательный характер.</p>
+                        <p class="footer-links">
+                            <a href="https://github.com/yourusername/musclefuel-pro" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
