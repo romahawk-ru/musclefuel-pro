@@ -8,97 +8,103 @@
 // ============================================================================
 
 const PRODUCTS_DATABASE = [
-    { name: "Куриные яйца С0", protein: 13, fat: 11, carbs: 1, calories: 155, category: "eggs" },
-    { name: "Сыр легкий (до 30% жирности)", protein: 24, fat: 15, carbs: 3, calories: 240, category: "dairy" },
-    { name: "Греческий йогурт", protein: 10, fat: 3, carbs: 4, calories: 83, category: "dairy" },
-    { name: "Творог обезжиренный", protein: 18, fat: 0.5, carbs: 3, calories: 88, category: "dairy" },
-    { name: "Филе куриное", protein: 23, fat: 1.5, carbs: 0, calories: 110, category: "meat" },
-    { name: "Филе индейки", protein: 22, fat: 3, carbs: 0, calories: 135, category: "meat" },
-    { name: "Тосты (цельнозерновой хлеб)", protein: 10, fat: 2, carbs: 45, calories: 240, category: "grains" },
-    { name: "Хлопья овсяные", protein: 12, fat: 6, carbs: 60, calories: 342, category: "grains" },
-    { name: "Хлопья рисовые", protein: 7, fat: 1, carbs: 80, calories: 357, category: "grains" },
-    { name: "Рисовая манка", protein: 7, fat: 1, carbs: 78, calories: 360, category: "grains" },
-    { name: "Рис (сухой)", protein: 7, fat: 1, carbs: 79, calories: 365, category: "grains" },
-    { name: "Гранола", protein: 10, fat: 12, carbs: 65, calories: 400, category: "grains" },
-    { name: "Банан", protein: 1, fat: 0.3, carbs: 23, calories: 96, category: "fruits" },
+    { name: "Куриные яйца С0", protein: 12.7, fat: 11.5, carbs: 0.7, calories: 157, category: "eggs" },
+    { name: "Сыр легкий (до 30% жирности)", protein: 31.2, fat: 18.2, carbs: 0, calories: 289, category: "dairy" },
+    { name: "Греческий йогурт", protein: 8, fat: 2, carbs: 4.2, calories: 67, category: "dairy" },
+    { name: "Творог обезжиренный", protein: 14, fat: 0.5, carbs: 3.3, calories: 74, category: "dairy" },
+    { name: "Молоко", protein: 3, fat: 1.5, carbs: 4.7, calories: 44, category: "dairy" },
+    { name: "Филе куриное", protein: 20, fat: 12, carbs: 0, calories: 180, category: "meat" },
+    { name: "Филе индейки", protein: 20, fat: 2.5, carbs: 0, calories: 100, category: "meat" },
+    { name: "Тосты (цельнозерновой хлеб)", protein: 7.5, fat: 2.9, carbs: 51.4, calories: 265, category: "grains" },
+    { name: "Хлопья овсяные", protein: 12, fat: 6, carbs: 60, calories: 340, category: "grains" },
+    { name: "Хлопья рисовые", protein: 7, fat: 1, carbs: 74, calories: 340, category: "grains" },
+    { name: "Хлопья кукурузные", protein: 8, fat: 1, carbs: 82, calories: 380, category: "grains" },
+    { name: "Рисовая манка", protein: 7, fat: 0.5, carbs: 78, calories: 340, category: "grains" },
+    { name: "Рис (сухой)", protein: 6.5, fat: 0.5, carbs: 83, calories: 360, category: "grains" },
+    { name: "Макароны", protein: 13, fat: 1.5, carbs: 72, calories: 350, category: "grains" },
+    { name: "Гранола", protein: 7, fat: 13, carbs: 62, calories: 390, category: "grains" },
+    { name: "Банан", protein: 1.1, fat: 0.3, carbs: 22.8, calories: 89, category: "fruits" },
     { name: "Ягоды замороженные", protein: 0.8, fat: 0.4, carbs: 12, calories: 52, category: "fruits" },
     { name: "Изюм", protein: 3, fat: 0.5, carbs: 79, calories: 299, category: "fruits" },
     { name: "Фрукт (средний)", protein: 0.5, fat: 0.2, carbs: 15, calories: 60, category: "fruits" },
     { name: "Томаты", protein: 1, fat: 0.2, carbs: 4, calories: 18, category: "vegetables" },
+    { name: "Картофель", protein: 2, fat: 0.4, carbs: 18, calories: 80, category: "vegetables" },
     { name: "Салат айсберг", protein: 0.9, fat: 0.1, carbs: 3, calories: 14, category: "vegetables" },
     { name: "Шпинат", protein: 3, fat: 0.4, carbs: 3, calories: 23, category: "vegetables" },
     { name: "Сельдерей", protein: 0.7, fat: 0.2, carbs: 3, calories: 16, category: "vegetables" },
-    { name: "Протеин (сывороточный)", protein: 80, fat: 9, carbs: 7, calories: 387, category: "sports" },
-    { name: "Паста арахисовая", protein: 25, fat: 50, carbs: 20, calories: 588, category: "nuts" },
-    { name: "Джем / мед", protein: 0.3, fat: 0, carbs: 82, calories: 304, category: "sweets" },
+    { name: "Протеин (сывороточный)", protein: 80, fat: 9, carbs: 7, calories: 430, category: "sports" },
+    { name: "Паста арахисовая", protein: 24, fat: 45, carbs: 6, calories: 550, category: "nuts" },
+    { name: "Джем / мед", protein: 0.3, fat: 0, carbs: 62, calories: 330, category: "sweets" },
+    { name: "Масло растительное", protein: 0, fat: 99.9, carbs: 0, calories: 899, category: "sweets" },
 ];
 
 const TRAINING_DAY_MEALS = {
     breakfast: [
         { product: "Куриные яйца С0", amount: 200 },
-        { product: "Сыр легкий (до 30% жирности)", amount: 50 },
-        { product: "Тосты (цельнозерновой хлеб)", amount: 160 },
-        { product: "Томаты", amount: 100 },
-        { product: "Салат айсберг", amount: 50 }
+        { product: "Хлопья овсяные", amount: 100 },
+        { product: "Банан", amount: 100 }
     ],
     lunch: [
-        { product: "Хлопья овсяные", amount: 120 },
-        { product: "Банан", amount: 120 },
-        { product: "Ягоды замороженные", amount: 100 },
-        { product: "Протеин (сывороточный)", amount: 60 },
-        { product: "Паста арахисовая", amount: 20 },
-        { product: "Джем / мед", amount: 30 }
+        { product: "Филе куриное", amount: 200 },
+        { product: "Макароны", amount: 100 },
+        { product: "Томаты", amount: 100 },
     ],
     dinner: [
-        { product: "Филе куриное", amount: 300 },
-        { product: "Рис (сухой)", amount: 120 },
-        { product: "Изюм", amount: 30 },
-        { product: "Шпинат", amount: 100 },
-        { product: "Сельдерей", amount: 50 }
+        { product: "Хлопья кукурузные", amount: 100 },
+        { product: "Протеин (сывороточный)", amount: 60 },
+        { product: "Банан", amount: 100 },
+        { product: "Паста арахисовая", amount: 20 },
+        { product: "Молоко", amount: 200 },
     ],
     eveningSnack: [
-        { product: "Греческий йогурт", amount: 250 },
-        { product: "Творог обезжиренный", amount: 100 },
-        { product: "Джем / мед", amount: 30 },
-        { product: "Гранола", amount: 60 },
-        { product: "Фрукт (средний)", amount: 200 }
+        { product: "Филе куриное", amount: 200 },
+        { product: "Рис (сухой)", amount: 100 },
+        { product: "Масло растительное", amount: 10 },
+        { product: "Томаты", amount: 100 },
+    ],
+    nightdinner: [
+        { product: "Фрукт (средний)", amount: 200 },
+        { product: "Творог обезжиренный", amount: 200 },
+        { product: "Гранола", amount: 40 },
     ]
 };
 
 const REST_DAY_MEALS = {
     breakfast: [
         { product: "Куриные яйца С0", amount: 160 },
-        { product: "Сыр легкий (до 30% жирности)", amount: 40 },
-        { product: "Тосты (цельнозерновой хлеб)", amount: 120 },
-        { product: "Томаты", amount: 80 },
-        { product: "Салат айсберг", amount: 40 }
+        { product: "Тосты (цельнозерновой хлеб)", amount: 80 },
+        { product: "Сыр легкий (до 30% жирности)", amount: 50 },
     ],
     lunch: [
-        { product: "Хлопья овсяные", amount: 100 },
-        { product: "Банан", amount: 100 },
-        { product: "Ягоды замороженные", amount: 80 },
-        { product: "Протеин (сывороточный)", amount: 30 },
-        { product: "Паста арахисовая", amount: 15 }
+        { product: "Филе индейки", amount: 200 },
+        { product: "Картофель", amount: 320 },
+        { product: "Томаты", amount: 100 },
     ],
     dinner: [
-        { product: "Филе индейки", amount: 250 },
-        { product: "Рис (сухой)", amount: 100 },
-        { product: "Шпинат", amount: 100 },
-        { product: "Сельдерей", amount: 50 }
+        { product: "Филе индейки", amount: 200 },
+        { product: "Рис (сухой)", amount: 80 },
+        { product: "Масло растительное", amount: 10 },
+        { product: "Шпинат", amount: 100 }
     ],
     eveningSnack: [
-        { product: "Греческий йогурт", amount: 200 },
-        { product: "Творог обезжиренный", amount: 80 },
-        { product: "Гранола", amount: 50 },
-        { product: "Фрукт (средний)", amount: 150 }
+        { product: "Филе индейки", amount: 200 },
+        { product: "Рис (сухой)", amount: 80 },
+        { product: "Масло растительное", amount: 10 },
+        { product: "Шпинат", amount: 100 }
+    ],
+    nightdinner: [
+        { product: "Фрукт (средний)", amount: 200 },
+        { product: "Творог обезжиренный", amount: 200 },
+        { product: "Гранола", amount: 40 }
     ]
 };
 
 const MEAL_NAMES = {
-    breakfast: "Завтрак",
-    lunch: "Обед (предтренировочный)",
-    dinner: "Ужин (посттренировочный)",
-    eveningSnack: "Прием пищи на ночь"
+    breakfast: "Прием пищи 1",
+    lunch: "Прием пищи 2",
+    dinner: "Прием пищи 3",
+    eveningSnack: "Прием пищи 4",
+    nightdinner: "Прием пищи 5"
 };
 
 const DAY_NAMES = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
